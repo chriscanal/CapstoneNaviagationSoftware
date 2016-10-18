@@ -1,0 +1,3 @@
+/home/chris/CapstoneNaviagationSoftware/CMakeFiles/rebuild_cache.dir
+/home/chris/CapstoneNaviagationSoftware/CMakeFiles/edit_cache.dir
+/home/chris/CapstoneNaviagationSoftware/CMakeFiles/test1.dir
