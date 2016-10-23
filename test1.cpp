@@ -7,7 +7,9 @@ using namespace std;
 
 
 int main(){
-  octomap::OcTree chrisTree (0.1);
-  return 0;
+	octomap::OcTree chrisTree (0.1);
+	chrisTree.setOccupancyThres(0.5);
+        cout << "This shit is working" << endl;
+	return 0;
 
 }

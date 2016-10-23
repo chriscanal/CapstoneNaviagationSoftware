@@ -1,4 +1,4 @@
-# Install script for directory: /home/chris/CapstoneNaviagationSoftware
+# Install script for directory: /home/natev/Documents/monarc-ros/src/CapstoneNaviagationSoftware
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/chris/CapstoneNaviagationSoftware/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/natev/Documents/monarc-ros/src/CapstoneNaviagationSoftware/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
