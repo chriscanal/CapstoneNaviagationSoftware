@@ -4,16 +4,19 @@ Duo M and correctly updates the octomap */
 
 using namespace std;
 #include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
-void createRandomPointCloud(octomap::Pointcloud & cloud9, int width, int hieght)
+void createRandomPointCloud(octomap::Pointcloud & cloud9, int width, int hieght, int offset)
 {
         float x = 1.0;
         float y = 1.0;
         float z = 1.0;
+	offset *= 2;
         for (int i = 0 ; i < hieght ; i++)
         {
                 for (int j = 0 ; j < width ; j++)
 		{
+			z = rand() % offset + 1;
 			cloud9.push_back( x, y, z);
         	        x += 1.0;
                 }
@@ -50,13 +53,18 @@ double getMiddleAverage(octomap::Pointcloud & sensorData, int totalW, int totalH
 	
 
 int main(){
+	srand(time(NULL)); //initialize same seed for reproducability
         octomap::OcTree chrisTree (0.1);
         chrisTree.setOccupancyThres(0.5);
         cout << "This shit is working" << endl;
 
         //Size of pointCloud = 640 x 480
         octomap::Pointcloud sensorData1;
-        createRandomPointCloud(sensorData1, 640, 480);
+	octomap::Pointcloud sensorData2;
+	int beginPositionZ = 10;
+	int endPositionZ = 12;
+        createRandomPointCloud(sensorData1, 640, 480,beginPositionZ);
+	createRandomPointCloud(sensorData2, 640, 480,endPositionZ);
 	
 	//display point data in terminal
 	octomap::point3d nPoint;
@@ -74,6 +82,9 @@ int main(){
 	translation1 = startPose.trans();
 	cout << "rotation = " << rotation1 << "; translation = " << translation1 << ";\n";
 	cout << "Middle Pixels Average = " << getMiddleAverage(sensorData1, 640, 480, 0.1) << "\n";
+	double begin = getMiddleAverage(sensorData1, 640, 480, 0.1);
+	double end = getMiddleAverage(sensorData2, 640, 480, 0.1);
+	cout << "Distance moved between frames = " << end - begin << "\n";
 	return 0;
 	
 }
