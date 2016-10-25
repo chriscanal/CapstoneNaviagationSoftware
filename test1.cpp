@@ -21,6 +21,30 @@ void createRandomPointCloud(octomap::Pointcloud & cloud9, int width, int hieght)
         }
 }
 
+double getMiddleAverage(int totalW, int totalH, double percentSize)
+{
+	//using 1/10 of the field of view at the center
+	//in order to calculate the distance change
+	//from last scan to now. Assumes the vector
+	//of points is streaming in from left to right
+	//and then from top to bottom, so it will have the
+	//entire first row first in order.
+	int right = (totalW*percentSize);
+	int left = (total);
+	for (int i = 0 ; i < hieght ; i++)
+        	{       
+                	for (int j = 0 ; j < width ; j++)
+                	{       
+                       		cloud9.push_back( x, y, z);
+                        	x += 1.0;
+                	} 
+                	y += 1.0;
+        }
+	
+	
+}
+	
+
 int main(){
         octomap::OcTree chrisTree (0.1);
         chrisTree.setOccupancyThres(0.5);
